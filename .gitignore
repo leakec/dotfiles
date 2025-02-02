@@ -7,6 +7,9 @@ kitty/.config/kitty/nvim_export.conf
 configs/hypr/waybar/config
 configs/hypr/waybar/style.css
 configs/hypr/wallpaper/current_wallpaper
+hypr/.config/hypr/dunst/dunstrc
+hypr/.config/hypr/waybar/dump_waybar_info
+hypr/.config/hypr/waybar/waybar_state.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
