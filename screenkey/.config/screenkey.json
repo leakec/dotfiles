@@ -5,8 +5,8 @@
     "compr_cnt": 3,
     "ignore": [],
     "position": "fixed",
-    "persist": false,
-    "window": null,
+    "persist": true,
+    "window": 848,
     "font_desc": "Sans Bold",
     "font_size": "medium",
     "font_color": "#616135358383",
@@ -20,10 +20,10 @@
     "vis_shift": false,
     "vis_space": true,
     "geometry": [
-        1223,
-        40,
-        816,
-        117
+        1354,
+        899,
+        561,
+        174
     ],
     "screen": 0,
     "start_disabled": false,
