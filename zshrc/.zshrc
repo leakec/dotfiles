@@ -129,7 +129,9 @@ if type "plugin-load" > /dev/null; then
 
     # Keybindings for plugins
     bindkey '^[[A' history-substring-search-up
+    bindkey "^[OA" history-substring-search-up
     bindkey '^[[B' history-substring-search-down
+    bindkey "^[OB" history-substring-search-down
     
     # Initialize zoxide
     if [ -x "$(command -v zoxide)" ]; then
