@@ -16,7 +16,7 @@ return {
         quickfile = { enabled = true },
         -- scroll = { enabled = true },
         -- statuscolumn = { enabled = true },
-        words = { enabled = true },
+        words = { enabled = false },
     },
     keys = {
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
@@ -47,7 +47,8 @@ return {
 
         -- Create some toggle mappings
         Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>ts")
-        Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>tw")
+        Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>tW")
+        Snacks.toggle.words():map("<leader>tw")
         Snacks.toggle.line_number():map("<leader>tl")
         Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>tL")
         Snacks.toggle.diagnostics():map("<leader>td")
