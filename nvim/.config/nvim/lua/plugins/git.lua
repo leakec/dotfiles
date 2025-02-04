@@ -75,7 +75,7 @@ return {
                     map('n', '<leader>tb', gs.toggle_current_line_blame)
                     map('n', '<leader>hd', gs.diffthis)
                     map('n', '<leader>hD', function() gs.diffthis('~') end)
-                    map('n', '<leader>td', gs.toggle_deleted)
+                    map('n', '<leader>hd', gs.toggle_deleted)
 
                     -- Text object
                     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
@@ -83,13 +83,4 @@ return {
             })
         end
     },
-
-
-    {
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    }
 }

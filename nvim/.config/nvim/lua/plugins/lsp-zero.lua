@@ -84,10 +84,5 @@ return {
 
         vim.api.nvim_set_keymap('n', 'gv', ':vsplit | lua vim.lsp.buf.definition()<CR>', {silent=true})
         vim.keymap.set('i', '<c-K>', function() lsp.buf.signature_help() end, {silent=true})
-        if vim.lsp.inlay_hint then
-            vim.keymap.set('n', '<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            end, { desc = 'Toggle Inlay Hints' })
-        end
     end
 }
