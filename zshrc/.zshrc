@@ -63,9 +63,6 @@ setopt nosharehistory # Does not share between tmux panes
 setopt hist_ignore_dups # Removes subsequent dupes
 setopt hist_find_no_dups
 
-## Set keyboard repeat rate
-xset r rate 150 30
-
 ## User-specific commands
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin" ]]
