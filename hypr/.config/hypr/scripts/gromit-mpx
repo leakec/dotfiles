@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-GROMIT_MPX=/var/lib/flatpak/app/net.christianbeier.Gromit-MPX/current/active/export/bin/net.christianbeier.Gromit-MPX
+GROMIT_MPX=/usr/bin/gromit-mpx
 
 # Start by switching to the special workspace and firing up gromit-mpx
 hyprctl dispatch togglespecialworkspace gromit
