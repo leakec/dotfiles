@@ -200,6 +200,9 @@ keybinds {
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
+    shared_except "tab" "locked" {
+        bind "Alt Tab" { SwitchToMode "Tab"; ToggleTab; SwitchToMode "Normal"; }
+    }
 }
 
 plugins {
