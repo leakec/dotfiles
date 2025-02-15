@@ -38,9 +38,6 @@ else
     alias l='ls -CF'
 fi
 
-## Setup PSI
-export PROMPT='%F{magenta}[%2d]$%f '
-
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -113,6 +110,7 @@ repos=(
   # ...
   z-shell/zsh-diff-so-fancy
   joshskidmore/zsh-fzf-history-search
+  olets/zsh-transient-prompt
 
   # plugins you want loaded last
   zsh-users/zsh-syntax-highlighting
@@ -164,5 +162,10 @@ if type "plugin-load" > /dev/null; then
     }
 fi
 
+set -o PROMPT_SUBST
+TRANSIENT_PROMPT_TRANSIENT_PROMPT=$'%F{magenta}${(r:$COLUMNS::—:)}'$'\n''%F{green}➜ ' # Minimal prompt after command runs
+TRANSIENT_PROMPT_PROMPT=$'%F{magenta}${(r:$COLUMNS::—:)}'$'\n''%F{magenta}%~'$'\n''%F{green}➜ ' #'%F{magenta}[%2d]$%f '
+PROMPT=$TRANSIENT_PROMPT_PROMPT
+
 # Source DARTS
-source ~/.zshrc_darts
+# source ~/.zshrc_darts
