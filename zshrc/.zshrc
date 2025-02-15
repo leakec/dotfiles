@@ -163,8 +163,8 @@ if type "plugin-load" > /dev/null; then
 fi
 
 set -o PROMPT_SUBST
-TRANSIENT_PROMPT_TRANSIENT_PROMPT=$'%F{magenta}${(r:$COLUMNS::—:)}'$'\n''%F{green}➜ ' # Minimal prompt after command runs
-TRANSIENT_PROMPT_PROMPT=$'%F{magenta}${(r:$COLUMNS::—:)}'$'\n''%F{magenta}%~'$'\n''%F{green}➜ ' #'%F{magenta}[%2d]$%f '
+TRANSIENT_PROMPT_PROMPT=$'%(?.%F{green}${(r:$COLUMNS::—:)}.%F{red}${(r:$COLUMNS::—:)})'$'\n''%F{blue}%~'$'\n''%F{green}➜ ' #'%F{magenta}[%2d]$%f '
+TRANSIENT_PROMPT_TRANSIENT_PROMPT=$'%(?.%F{green}${(r:$COLUMNS::—:)}.%F{red}${(r:$COLUMNS::—:)})'$'\n''%F{green}➜ ' # Minimal prompt after command runs
 PROMPT=$TRANSIENT_PROMPT_PROMPT
 
 # Source DARTS
