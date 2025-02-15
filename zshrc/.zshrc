@@ -162,10 +162,13 @@ if type "plugin-load" > /dev/null; then
     }
 fi
 
+function virtualenv_info { 
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+}
 set -o PROMPT_SUBST
-TRANSIENT_PROMPT_PROMPT=$'%(?.%F{green}${(r:$COLUMNS::—:)}.%F{red}${(r:$COLUMNS::—:)})'$'\n''%F{blue}%~'$'\n''%F{green}➜ ' #'%F{magenta}[%2d]$%f '
+TRANSIENT_PROMPT_PROMPT=$'%(?.%F{green}${(r:$COLUMNS::—:)}.%F{red}${(r:$COLUMNS::—:)})'$'\n''$(virtualenv_info)''%F{blue}%~'$'\n''%F{green}➜ ' #'%F{magenta}[%2d]$%f '
 TRANSIENT_PROMPT_TRANSIENT_PROMPT=$'%(?.%F{green}${(r:$COLUMNS::—:)}.%F{red}${(r:$COLUMNS::—:)})'$'\n''%F{green}➜ ' # Minimal prompt after command runs
 PROMPT=$TRANSIENT_PROMPT_PROMPT
 
 # Source DARTS
-# source ~/.zshrc_darts
+source ~/.zshrc_darts
