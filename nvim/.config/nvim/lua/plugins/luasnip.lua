@@ -6,7 +6,7 @@ return {
         local t = ls.text_node
 
         ls.add_snippets("python", {
-            s("excepthook", {
+            s("post-mortem", {
                 t({
                     "import sys",
                     "import pdb",

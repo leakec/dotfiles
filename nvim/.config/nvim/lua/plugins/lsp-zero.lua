@@ -22,7 +22,7 @@ return {
         {'mhartington/formatter.nvim'},
     },
     config = function()
-        local lsp = require('lsp-zero').preset({})
+        local lsp = require('lsp-zero')
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = {'pyright', 'clangd', 'ts_ls', 'rust_analyzer'},
@@ -37,6 +37,8 @@ return {
                 end,
             }
         })
+
+        vim.opt.signcolumn = 'yes'
 
         lsp.on_attach(function(client, bufnr)
             lsp.default_keymaps({buffer = bufnr})
