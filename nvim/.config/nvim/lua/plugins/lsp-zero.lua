@@ -2,7 +2,7 @@
 return {
 
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
+    branch = 'v4.x',
     dependencies = {
         -- LSP Support
         {'neovim/nvim-lspconfig'},
@@ -14,7 +14,9 @@ return {
         {'hrsh7th/cmp-nvim-lsp'}, -- Required
         {'hrsh7th/cmp-path'},     -- Optional, for path autocomplete
         {'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, used for completion inside function signatures
-        {'L3MON4D3/LuaSnip'},     -- Required
+        {'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, used for completion inside function signatures
+        {'saadparwaiz1/cmp_luasnip'}, -- Completion for lua snippets
+        {'L3MON4D3/LuaSnip'}, -- Lua snippets
 
         -- Formatting
         {'mhartington/formatter.nvim'},
@@ -54,6 +56,12 @@ return {
                 {name = 'nvim_lsp'},
                 {name = 'nvim_lsp_signature_help'},
                 {name = 'path'},
+                {name = 'luasnip'},
+            },
+            snippet = {
+                expand = function(args)
+                    require('luasnip').lsp_expand(args.body)
+                end,
             },
 
             -- Key bindings
