@@ -93,6 +93,20 @@ return {
         })
 
         vim.api.nvim_set_keymap('n', 'gv', ':vsplit | lua vim.lsp.buf.definition()<CR>', {silent=true})
+        vim.api.nvim_set_keymap('n', 'gl', ':lua vim.diagnostic.open_float()<CR>', {silent=true})
+        vim.diagnostic.config {
+            signs = true,
+            underline = true,
+            virtual_text = true,
+            virtual_lines = false,
+            update_in_insert = true,
+            float = {
+              -- UI.
+              header = false,
+              border = 'rounded',
+              focusable = true,
+            }
+        }
         vim.keymap.set('i', '<c-K>', function() lsp.buf.signature_help() end, {silent=true})
     end
 }
