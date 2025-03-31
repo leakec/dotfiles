@@ -1,6 +1,7 @@
 return {
     -- lazy.nvim
 	"chrisgrieser/nvim-rip-substitute",
+    event="VeryLazy",
 	cmd = "RipSubstitute",
 	keys = {
 		{
