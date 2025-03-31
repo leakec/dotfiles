@@ -32,6 +32,7 @@ return {
 
     {
         'folke/tokyonight.nvim',
+        event="VeryLazy",
         config = function()
             require("tokyonight").setup({
                 -- your configuration comes here
@@ -72,6 +73,7 @@ return {
     },
     {
         "catppuccin/nvim",
+        event="VeryLazy",
         name = "catppuccin",
         config = function()
             require("catppuccin").setup({
@@ -126,6 +128,7 @@ return {
     },
     {
         "scottmckendry/cyberdream.nvim",
+        event="VeryLazy",
         config = function()
             require("cyberdream").setup({
                 -- Enable transparent background
@@ -189,6 +192,7 @@ return {
     },
     {
         "rose-pine/neovim",
+        event="VeryLazy",
         name = "rose-pine",
         config = function()
             require("rose-pine").setup({
@@ -270,6 +274,7 @@ return {
     },
     {
         "eldritch-theme/eldritch.nvim",
+        event="VeryLazy",
         config = function()
             require("eldritch").setup({
                 -- your configuration comes here
@@ -308,6 +313,7 @@ return {
     },
     {
         'Mofiqul/dracula.nvim',
+        event="VeryLazy",
         config = function()
             require("dracula").setup({
                 -- show the '~' characters after the end of buffers
