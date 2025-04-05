@@ -141,7 +141,7 @@ if options["change_bg"]:
     def sys_args_ctx():
         save = sys.argv
         try:
-            sys.argv = ["wal","-i",pic,"-t","-s","-q"]
+            sys.argv = ["wal","-i",pic,"-t","-s","-q","-n"]
             yield
         finally:
             sys.argv = save
