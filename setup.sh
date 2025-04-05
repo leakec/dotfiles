@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKGS=("zshrc" "zellij" "wal" "vim" "rofi" "nvim" "kitty" "hypr" "tmux" "applications" "lazygit")
+PKGS=("zshrc" "zellij" "wal" "vim" "rofi" "nvim" "kitty" "hypr" "tmux" "applications" "lazygit" "Pictures")
 
 # Setup symlink in hypr
 if [ ! -L "~/.config/hypr/monitors.conf" ]; then
