@@ -20,5 +20,6 @@ return {
         }
 
         vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", { noremap = true, silent = true })
+        vim.api.nvim_set_keymap("n", "<Leader>ncf", ":cexpr system(\"python -m pydocstyle | paste - - | sed -n 's|^\\\\(.*\\\\):\\\\([0-9]\\\\+\\\\).* \\\\(D[0-9]\\\\+.*\\\\)|\\\\1:\\\\2:0:\\\\3|p'\")<CR>", { noremap = true, silent = true })
     end
 }
