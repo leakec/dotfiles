@@ -15,6 +15,7 @@ return {
                         annotation_convention = "numpydoc"
                     }
                 },
+                ['cpp.doxygen'] = require('neogen.configurations.cpp')
             }
         }
 
