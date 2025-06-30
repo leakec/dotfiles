@@ -6,14 +6,13 @@
 * `yay -Y --devel --save`
 
 # Yay packages
-* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal16 python-pywalfox swww swayidle dunst cmake npm yarn zsh waybar zip unzip inotify-tools clip-hist zoxide meld lm_sensors sway-audio-idle-inhibit-git libnotify`
+* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal16 python-pywalfox swww swayidle dunst cmake npm yarn zsh waybar zip unzip inotify-tools clip-hist zoxide meld lm_sensors sway-audio-idle-inhibit-git libnotify eza zellij bat ttf-font-awesome ttf-nerd-fonts-symbols-common ttf-jetbrains-mono-nerd ttf-hack-nerd pamixer lazygit tmux`
 
 # Basic directories
 * `mkdir -p ~/Downloads`
-
-# Add wallpapers
-* Go to google drive and download wallpapers.
-* Put them in ~/Pictures/Wallpaper
+* `mkdir -p ~/Documents`
+* `mkdir -p ~/Pictures`
+* `mkdir -p ~/.config/zellij/themes`
 
 # Change shell
 * `touch ~/.zshrc_darts`
@@ -21,7 +20,6 @@
 
 # Rust
 * `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-* `cargo install eza zellij`
 
 # Sensors
 * Run `lm_sensors --auto`
