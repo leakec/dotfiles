@@ -171,4 +171,4 @@ TRANSIENT_PROMPT_TRANSIENT_PROMPT=$'%(?.%F{green}${(r:$COLUMNS::—:)}.%F{red}${
 PROMPT=$TRANSIENT_PROMPT_PROMPT
 
 # Source DARTS
-source ~/.zshrc_darts
+# source ~/.zshrc_darts
