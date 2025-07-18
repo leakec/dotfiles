@@ -1,0 +1,13 @@
+#!/bin/bash
+
+nerd-dictation begin --input=PW-CAT --simulate-input-tool=DOTOOL &
+notify-send --urgency=normal "nerd-dictation" "Beginning"
+
+# Bind F9 to turn resume nerd dictation and F8 to stop it
+hyprctl keyword bind ', F9, exec, nerd-dictation resume && notify-send --urgency=normal "nerd-dictation" "Started"'
+hyprctl keyword bind ', F8, exec, nerd-dictation suspend && notify-send --urgency=normal "nerd-dictation" "Stopped"'
+
+# Bind Alt F9 to quit and unbind everything
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F9"
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F8"
+hyprctl keyword bind 'ALT, F9, exec, nerd-dictation end && notify-send --urgency=normal "nerd-dictation" "Ended"'

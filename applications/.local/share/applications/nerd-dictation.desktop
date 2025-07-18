@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/home/leake/.config/hypr/scripts/nerd-dictation-runner
+Name=Nerd Dictation
+Type=Application
+Comment=Run nerd dicatation for speech to text
+Terminal=false
+StartupNotify=false
