@@ -85,7 +85,16 @@ function zfg () { zellij edit -i ""; zellij action write-chars " fg"}
 alias z="zellij options --no-pane-frames"
 
 # Use the OSC52 escape sequence and base64 encoding to copy to system clipboard via a pipe
-function copy () {echo -en "\e]52;c;$(cat $1|base64)\a" }
+copy() {
+  local input
+  if [ -t 0 ]; then
+    input=$(cat "$1")
+  else
+    input=$(cat)
+  fi
+  input=$(echo -n "$input" | xargs)
+  echo -en "\e]52;c;$(echo -n "$input" | base64)\a"
+}
 
 ## Plugins
 # From https://github.com/mattmc3/zsh_unplugged#jigsaw-the-humble-plugin-load-function
