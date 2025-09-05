@@ -127,6 +127,14 @@ repos=(
   #zsh-users/zsh-autosuggestions
 )
 
+# Declare variables used by substring search to avoid warnings about globals
+typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=white,bold'
+typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
+typeset -g HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
+typeset -g HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=''
+typeset -g HISTORY_SUBSTRING_SEARCH_FUZZY=''
+typeset -g HISTORY_SUBSTRING_SEARCH_PREFIXED=''
+
 # now load your plugins
 if type "plugin-load" > /dev/null; then
     plugin-load $repos
