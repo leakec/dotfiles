@@ -44,3 +44,6 @@
 * `cargo install --locked zellij`
 * `cargo install --locked exa`
 * `cargo install --locked zoxide`
+
+# Printing
+* Enable cups and avahi-daemon. Go to localhost:631/admin to add printer.
