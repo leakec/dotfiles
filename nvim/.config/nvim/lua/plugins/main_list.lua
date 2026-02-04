@@ -7,11 +7,5 @@ return {
 
     -- Julia editing
     'JuliaEditorSupport/julia-vim',
-
-    -- Asciidoctor live preview
-    {
-        'tigion/nvim-asciidoc-preview',
-        ft = { 'asciidoc' },
-    }
 }
 
