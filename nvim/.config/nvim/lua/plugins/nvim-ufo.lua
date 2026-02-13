@@ -20,11 +20,11 @@ return {
             dynamicRegistration = false,
             lineFoldingOnly = true
         }
-        local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+
+        local language_servers = vim.lsp.get_active_clients() -- or list servers manually like {'gopls', 'clangd'}
         for _, ls in ipairs(language_servers) do
-            require('lspconfig')[ls].setup({
-                capabilities = capabilities
-                -- you can add other fields for setting up lsp server in this table
+            vim.lsp.config(ls, {
+                capabilities = vim.lsp.protocol.make_client_capabilities()
             })
         end
 
