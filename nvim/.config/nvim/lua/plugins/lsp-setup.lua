@@ -16,7 +16,7 @@ return {
 
             require('mason').setup({})
             require('mason-lspconfig').setup({
-                ensure_installed = {'pyright', 'clangd', 'ts_ls', 'rust_analyzer'},
+                ensure_installed = {'ty', 'clangd', 'ts_ls', 'rust_analyzer'},
             })
 
             vim.opt.signcolumn = 'yes'
