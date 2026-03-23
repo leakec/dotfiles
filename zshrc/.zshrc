@@ -82,7 +82,7 @@ function zef () { zellij edit --floating "$*";}
 function zm () { zellij action start-or-reload-plugin file:$HOME/.zellij_plugins/multitask.wasm --configuration "shell=$SHELL,ccwd=`pwd`,layout=`cat ~/.config/zellij/multitask_layout.kdl`" }
 function zff () { zellij edit -i ""; zellij action write-chars " ff"}
 function zfg () { zellij edit -i ""; zellij action write-chars " fg"}
-alias z="zellij options --no-pane-frames"
+alias z="zellij options --pane-frames false"
 
 # Use the OSC52 escape sequence and base64 encoding to copy to system clipboard via a pipe
 copy() {
