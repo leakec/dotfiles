@@ -24,7 +24,7 @@ return {
         vim.keymap.set("n", "<Leader>ncf", function()
             -- Run yamroot and trim newline
             local root = vim.fn.system("yamroot"):gsub("%s+$", "")
-            local config_path = root ~= "" and (root .. "/common/ruff.toml") or nil
+            local config_path = root ~= "" and (root .. "/common/ruff_docs.toml") or nil
             local cmd
 
             if config_path and vim.fn.filereadable(config_path) == 1 then
