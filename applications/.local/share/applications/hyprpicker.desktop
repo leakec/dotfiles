@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=bash -c "hyprpicker | tr -d '[:space:]' | wl-copy"
+Name=hyprpicker
+Type=Application
+Comment=Run hyprpicker and save the result to the clipboard
+Terminal=false
+StartupNotify=false
