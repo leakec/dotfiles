@@ -8,7 +8,7 @@ quotes = [
     "Do not pray for an easy life, pray for the strength to endure a difficult one - Bruce Lee",
 ]
 
-pic_file = Path("/tmp/swww_pics.txt")
+pic_file = Path("/tmp/awww_pics.txt")
 
 
 with open(pic_file,"r") as f:
