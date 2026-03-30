@@ -10,7 +10,7 @@ from contextlib import contextmanager
 
 # Define variables used througout
 options = {}
-pic_file = Path("/tmp/swww_pics.txt")
+pic_file = Path("/tmp/awww_pics.txt")
 
 @click.group(
     name="cli",
@@ -27,7 +27,7 @@ pic_file = Path("/tmp/swww_pics.txt")
 @click.option(
     "--change-bg/--no-change-bg",
     type=bool,
-    help="Change bg using swww.",
+    help="Change bg using awww.",
     default=True
 )
 @click.option(
@@ -131,9 +131,9 @@ if options["change_bg"]:
     else:
         resize = ""
 
-    # This transition is really laggy. Try again at a future time when https://github.com/Horus645/swww/issues/154 is fixed.
-    #system("swww img "+f" -t wipe --transition-bezier .43,1.19,1,.4 --transition-duration 2 --transition-fps 30 {resize}"+pic)
-    system("swww img "+pic+f" --transition-type none {resize}")
+    # This transition is really laggy. Try again at a future time when https://github.com/Horus645/awww/issues/154 is fixed.
+    #system("awww img "+f" -t wipe --transition-bezier .43,1.19,1,.4 --transition-duration 2 --transition-fps 30 {resize}"+pic)
+    system("awww img "+pic+f" --transition-type none {resize}")
 
     system(f"ln -fs {pic} ~/.config/hypr/wallpaper/current_wallpaper")
 
@@ -149,4 +149,4 @@ if options["change_bg"]:
     with sys_args_ctx():
         pywal_main()
 
-    system("~/.config/hypr/wallpaper/apply-theme.sh -s")
+    #system("~/.config/hypr/wallpaper/apply-theme.sh -s")
