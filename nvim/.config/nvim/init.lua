@@ -49,29 +49,41 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Copy text using OSC 52, but keep the normal paste options
-local function my_paste(_)
-    return function(_)
-        local content = vim.fn.getreg('"')
-        return vim.split(content, '\n')
-    end
-end
-
 if (os.getenv('SSH_TTY') == nil)
 then
     vim.opt.clipboard:append("unnamedplus")
 else
-    vim.opt.clipboard:append("unnamedplus")
+    local osc52 = require("vim.ui.clipboard.osc52")
+    local function my_paste(_)
+        return function(_)
+            local content = vim.fn.getreg('"')
+            return vim.split(content, '\n')
+        end
+    end
+
+    local function my_copy(reg)
+        local orig = osc52.copy(reg)
+        return function(lines, regtype)
+            -- Write to Vim's internal register
+            vim.fn.setreg('"', table.concat(lines, "\n"), regtype)
+
+            -- Send OSC52 to local clipboard
+            orig(lines, regtype)
+        end
+    end
+
     vim.g.clipboard = {
       name = 'OSC 52',
       copy = {
-        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+        ['+'] = my_copy('+'),
+        ['*'] = my_copy('*'),
       },
       paste = {
         ["+"] = my_paste("+"),
         ["*"] = my_paste("*"),
-    },
-}
+        }
+    }
+    vim.opt.clipboard = "unnamedplus"
 end
 
 -- Used to check if package is available 
