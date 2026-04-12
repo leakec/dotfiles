@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Function to display help information
+usage() {
+    echo "Usage: $0 [OPTIONS]"
+    echo "  -r, --rest MINUTES    Set the rest time in minutes."
+    echo "  -h, --help            Display this help message."
+    exit 0
+}
+
+# Initialize variables
+rest_time=90
+
+# Loop through arguments
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -r|--rest)
+            if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
+                rest_time="$2"
+                shift 2
+            else
+                echo "Error: Argument for $1 must be a positive integer."
+                exit 1
+            fi
+            ;;
+        -h|--help)
+            usage
+            ;;
+        *)
+            echo "Error: Invalid option '$1'"
+            usage
+            ;;
+    esac
+done
+
+rest_time=$((rest_time * 60))
+
+moving_options=("90 x 90" "10 x squats w/ twist" "10 x touch toes" "1 min bar hang" "15 x press ups")
+
+while true; do
+    sleep $rest_time
+    notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -t 0 "Time to move: ${moving_options[RANDOM % ${#moving_options[@]}]}"
+done
