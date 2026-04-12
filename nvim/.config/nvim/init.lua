@@ -86,6 +86,11 @@ else
     vim.opt.clipboard = "unnamedplus"
 end
 
+-- ui2 setup
+require("vim._core.ui2").enable()
+vim.opt.winborder = "rounded"
+vim.opt.completeopt:append("popup")
+
 -- Used to check if package is available 
 function isModuleAvailable(name)
   if package.loaded[name] then
