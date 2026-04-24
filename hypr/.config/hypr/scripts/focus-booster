@@ -9,7 +9,7 @@ usage() {
 }
 
 # Initialize variables
-rest_time=90
+rest_time=60
 
 # Loop through arguments
 while [[ $# -gt 0 ]]; do
@@ -35,7 +35,7 @@ done
 
 rest_time=$((rest_time * 60))
 
-moving_options=("90 x 90" "10 x squats w/ twist" "10 x touch toes" "1 min bar hang" "15 x press ups")
+moving_options=("90 x 90" "10 x squats w/ twist" "10 x touch toes" "1 min bar hang" "15 x press ups" "3 sun salutations")
 
 while true; do
     sleep $rest_time
