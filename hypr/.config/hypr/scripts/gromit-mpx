@@ -1,32 +1,49 @@
 #!/bin/zsh
 
 GROMIT_MPX=/usr/bin/gromit-mpx
+my_pid=$$
 
 # Start by switching to the special workspace and firing up gromit-mpx
-hyprctl dispatch togglespecialworkspace gromit
-hyprctl dispatch exec $GROMIT_MPX 
+hyprctl dispatch 'hl.dsp.workspace.toggle_special("gromit")'
+hyprctl eval "hl.exec_cmd(\"$GROMIT_MPX\")"
 sleep 0.5
-hyprctl dispatch -- exec $GROMIT_MPX -t
+hyprctl eval "hl.exec_cmd(\"$GROMIT_MPX -t\")"
 
 # Bind F9 to turn on/off gromit + the workspace
-hyprctl keyword bind ", F9, togglespecialworkspace, gromit"
-hyprctl keyword bind ", F9, exec, $GROMIT_MPX -t"
+hyprctl eval "hl.bind(\"F9\", hl.dsp.workspace.toggle_special(\"gromit\"))"
+hyprctl eval "hl.bind(\"F9\", function() hl.exec_cmd(\"$GROMIT_MPX -t\") end)"
 
 # Bind F8 and Shift F8 to undo and redo
-hyprctl keyword bind ", F8, exec, $GROMIT_MPX -z"
-hyprctl keyword bind "SHIFT, F8, exec, $GROMIT_MPX -y"
+hyprctl eval "hl.bind(\"F8\", function() hl.exec_cmd(\"$GROMIT_MPX -z\") end)"
+hyprctl eval "hl.bind(\"SHIFT + F8\", function() hl.exec_cmd(\"$GROMIT_MPX -y\") end)"
 
 # Bind shift F9 to clear the screen
-hyprctl keyword bind "SHIFT, F9, exec, $GROMIT_MPX -c"
+hyprctl eval "hl.bind(\"SHIFT + F9\", function() hl.exec_cmd(\"$GROMIT_MPX -c\") end)"
 
 # Bind shift F9 to hide the screen
 #hyprctl keyword bind "CTRL, F9, exec, $GROMIT_MPX -v"
 
-# Bind Alt F9 to quit and unbind everything
-hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F8"
-hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind SHIFT, F8"
-hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F9"
-hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind SHIFT, F9"
-hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind ALT, F9"
-hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind CTRL, F9"
-hyprctl keyword bind "ALT, F9, exec, $GROMIT_MPX -q"
+# Bind Alt F9 to send SIGTERM to this script
+hyprctl eval "hl.bind(\"ALT + F9\", function() hl.exec_cmd(\"kill -15 $my_pid\") end)"
+
+# Run this on cleanup
+wait_pid=$my_pid
+cleanup() {
+    echo "Performing cleanup tasks..."
+    hyprctl eval "hl.exec_cmd(\"$GROMIT_MPX -q\")"
+    hyprctl eval "hl.unbind(\"F8\")"
+    hyprctl eval "hl.unbind(\"SHIFT + F8\")"
+    hyprctl eval "hl.unbind(\"F9\")"
+    hyprctl eval "hl.unbind(\"SHIFT F9\")"
+    hyprctl eval "hl.unbind(\"CTRL + F9\")"
+    hyprctl eval "hl.unbind(\"ALT + F9\")"
+    kill -15 $wait_pid
+    exit 0
+}
+
+trap cleanup SIGTERM SIGINT
+
+# Wait until we get the signal to cleanup
+sleep inf &
+wait_pid=$!
+wait $wait_pid
