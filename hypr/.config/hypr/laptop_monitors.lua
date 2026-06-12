@@ -1,6 +1,6 @@
 -- Monitor config
 hl.monitor({output="", mode="preferred", position="auto", scale=1.0})
--- hl.monitor({output="eDP-1", mode="disabled"})
+-- hl.monitor({output="eDP-1", disabled=true})
 -- hl.monitor({output="DP-1", mode="highres", position="auto", scale=2.0})
 
 -- Makes external screen work with nivida-card, but kills primary screen.
