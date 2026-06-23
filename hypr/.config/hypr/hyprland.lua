@@ -209,20 +209,20 @@ hl.bind(main_mod .. " + Left", hl.dsp.focus({workspace="-1"}))
 -- or, move to active window previous or next workspace with 
 -- mainMod + SHIFT + Left and Right arrow keys
 for k = 1, 9 do
-    hl.bind(main_mod .. " + SHIFT + " .. k, hl.dsp.window.move({workspace=k, true}))
+    hl.bind(main_mod .. " + SHIFT + " .. k, hl.dsp.window.move({workspace=k, follow=true}))
 end
 
-hl.bind(main_mod .. " + SHIFT + Right", hl.dsp.window.move({workspace="+1", true}))
-hl.bind(main_mod .. " + SHIFT + Left", hl.dsp.window.move({workspace="-1", true}))
+hl.bind(main_mod .. " + SHIFT + Right", hl.dsp.window.move({workspace="+1", follow=true}))
+hl.bind(main_mod .. " + SHIFT + Left", hl.dsp.window.move({workspace="-1", follow=true}))
 
 -- Move active window to a workspace silently (you don't move with it) with mainMod + CTRL + [0-9]
 -- or use mainMod + CTRL + Left or Right arrow keys to move to previous or next workspace silently
 for k = 1, 9 do
-    hl.bind(main_mod .. " + CTRL + " .. k, hl.dsp.window.move({workspace=k, false}))
+    hl.bind(main_mod .. " + CTRL + " .. k, hl.dsp.window.move({workspace=k, follow=false}))
 end
 
-hl.bind(main_mod .. " + CTRL + Right", hl.dsp.window.move({workspace="+1", false}))
-hl.bind(main_mod .. " + CTRL + Left", hl.dsp.window.move({workspace="-1", false}))
+hl.bind(main_mod .. " + CTRL + Right", hl.dsp.window.move({workspace="+1", follow=false}))
+hl.bind(main_mod .. " + CTRL + Left", hl.dsp.window.move({workspace="-1", follow=false}))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -230,5 +230,5 @@ hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Special workspace rules
 hl.bind(main_mod .. " + S", hl.dsp.workspace.toggle_special("special"))
-hl.bind(main_mod .. " + CTRL + S", hl.dsp.window.move({workspace="special", false}))
-hl.bind(main_mod .. " + SHIFT + S", hl.dsp.window.move({workspace="special", true}))
+hl.bind(main_mod .. " + CTRL + S", hl.dsp.window.move({workspace="special", follow=false}))
+hl.bind(main_mod .. " + SHIFT + S", hl.dsp.window.move({workspace="special", follow=true}))
