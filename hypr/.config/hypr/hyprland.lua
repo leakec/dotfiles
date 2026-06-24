@@ -176,8 +176,8 @@ hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("~/.config/hypr/waybar/toggle_waybar
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
 -- Modifying windows
-hl.bind(main_mod .. " + SHIFT + M", hl.dsp.window.fullscreen("maximized", "toggle"))
-hl.bind(main_mod .. " + M", hl.dsp.window.fullscreen("fullscreen", "toggle"))
+hl.bind(main_mod .. " + SHIFT + M", hl.dsp.window.fullscreen({mode="fullscreen", action="toggle"}))
+hl.bind(main_mod .. " + M", hl.dsp.window.fullscreen({mode="maximized", action="toggle"}))
 hl.bind(main_mod .. " + F", hl.dsp.window.float("toggle"))
 
 -- Move focus
