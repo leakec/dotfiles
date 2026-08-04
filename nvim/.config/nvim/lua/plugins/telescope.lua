@@ -51,13 +51,14 @@ return {
 
             -- Telescope keybindings
             local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-            vim.keymap.set('n', '<leader>fj', builtin.jumplist, {})
-            vim.keymap.set('n', '<leader>fG', builtin.git_commits, {})
-            vim.keymap.set('n', '<leader>ft', builtin.treesitter, {})
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc="File picker"})
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc="Grep picker"})
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc="Buffer picker"})
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc="Help tags picker"})
+            vim.keymap.set('n', '<leader>fj', builtin.jumplist, {desc="Jumplist picker"})
+            vim.keymap.set('n', '<leader>fG', builtin.git_commits, {desc="Git commits picker"})
+            vim.keymap.set('n', '<leader>ft', builtin.treesitter, {desc="Treesitter picker"})
+            vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {desc="Diagnostic picker"})
             vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
         end
     }
