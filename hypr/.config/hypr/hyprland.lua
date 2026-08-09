@@ -96,6 +96,19 @@ hl.device({
     sensitivity = -0.5
 })
 
+-- Screen draw
+hl.workspace_rule({workspace = "special:screen_draw", gaps_in = 0, gaps_out = 0})
+hl.window_rule({
+    name = "screen_draw",
+    match = {
+        class = "^(screen_draw)$"
+    },
+    fullscreen_state = "3 1",
+    no_blur = true,
+    no_dim = true,
+    no_shadow = true,
+    suppress_event = "fullscreen"
+})
 
 -- Gromit MPX
 hl.workspace_rule({workspace = "special:gromit", gaps_in = 0, gaps_out = 0})
