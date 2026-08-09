@@ -4,10 +4,10 @@ GROMIT_MPX=/usr/bin/gromit-mpx
 my_pid=$$
 
 # Start by switching to the special workspace and firing up gromit-mpx
+hyprctl eval "hl.exec_cmd(\"$GROMIT_MPX\", { workspace = \"special:gromit\" })"
 hyprctl dispatch 'hl.dsp.workspace.toggle_special("gromit")'
-hyprctl eval "hl.exec_cmd(\"$GROMIT_MPX\")"
 sleep 0.5
-hyprctl eval "hl.exec_cmd(\"$GROMIT_MPX -t\")"
+hyprctl eval "hl.exec_cmd(\"$GROMIT_MPX -t\", { workspace = \"special:gromit\" })"
 
 # Bind F9 to turn on/off gromit + the workspace
 hyprctl eval "hl.bind(\"F9\", hl.dsp.workspace.toggle_special(\"gromit\"))"
