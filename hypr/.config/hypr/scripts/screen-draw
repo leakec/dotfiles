@@ -1,12 +1,12 @@
 #!/bin/zsh
 
-SCREEN_DRAW=/home/leake/.cargo/bin/screen_draw
+SCREEN_DRAW=/home/leake/.cargo/bin/screen-draw
 my_pid=$$
 
 # Start by switching to the special workspace and firing up screen_draw
 hyprctl eval "hl.exec_cmd(\"$SCREEN_DRAW\", { workspace = \"special:screen_draw\" })"
 hyprctl dispatch 'hl.dsp.workspace.toggle_special("screen_draw")'
-sc_pid=$(pgrep -x screen_draw)
+sc_pid=$(pgrep -x screen-draw)
 
 # Bind F9 to turn on/off screen_draw + the workspace
 hyprctl eval "hl.bind(\"F9\", hl.dsp.workspace.toggle_special(\"screen_draw\"))"

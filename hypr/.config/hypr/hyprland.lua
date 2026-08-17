@@ -99,9 +99,9 @@ hl.device({
 -- Screen draw
 hl.workspace_rule({workspace = "special:screen_draw", gaps_in = 0, gaps_out = 0})
 hl.window_rule({
-    name = "screen_draw",
+    name = "screen-draw",
     match = {
-        class = "^(screen_draw)$"
+        class = "^(screen-draw)$"
     },
     fullscreen_state = "3 1",
     no_blur = true,

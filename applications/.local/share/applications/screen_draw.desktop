@@ -1,5 +1,6 @@
 [Desktop Entry]
 Exec=/bin/zsh /home/leake/.config/hypr/scripts/screen-draw
+Icon=screen-draw
 Name=screen draw
 Type=Application
 Comment=Annotate your screen
