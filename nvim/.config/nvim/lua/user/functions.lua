@@ -119,7 +119,7 @@ end
 
 function ExportColors(quiet)
     if quiet == nil then quiet = false end
-    pcall(_ExportColorsTmux, quiet)
+    -- pcall(_ExportColorsTmux, quiet)
     _ExportColorsZellij(quiet)
     _ExportColorsKitty(quiet)
 end
