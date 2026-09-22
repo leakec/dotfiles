@@ -6,7 +6,7 @@
 * `yay -Y --devel --save`
 
 # Yay packages
-* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal16 python-pywalfox swww swayidle swaylock dunst cmake npm yarn zsh waybar zip unzip inotify-tools clip-hist zoxide meld lm_sensors sway-audio-idle-inhibit-git libnotify eza zellij bat ttf-font-awesome ttf-nerd-fonts-symbols-common ttf-jetbrains-mono-nerd ttf-hack-nerd pamixer lazygit tmux rofi fd wl-clipboard`
+* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal16 python-pywalfox awww hypridle hyprlock dunst cmake zsh waybar zip unzip inotify-tools clip-hist zoxide lm_sensors sway-audio-idle-inhibit-git libnotify eza zellij bat ttf-font-awesome ttf-nerd-fonts-symbols-common ttf-jetbrains-mono-nerd ttf-hack-nerd pamixer lazygit rofi fd wl-clipboard less`
 
 # Basic directories
 * `mkdir -p ~/Downloads`
