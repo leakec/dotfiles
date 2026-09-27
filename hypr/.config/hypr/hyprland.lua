@@ -184,6 +184,7 @@ hl.bind(main_mod .. " + I", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume --tog
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume --inc"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume --dec"))
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume --toggle"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
 
 -- Toggle waybar
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("~/.config/hypr/waybar/toggle_waybar.sh"))
