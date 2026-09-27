@@ -177,7 +177,7 @@ hl.bind(main_mod .. " + CTRL + W", hl.dsp.exec_cmd("~/.config/hypr/wallpaper/rof
 hl.bind(main_mod .. " + CTRL + B", hl.dsp.exec_cmd("exec, ~/.config/hypr/waybar/rofi_choose_waybar"))
 hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("python ~/.config/hypr/wallpaper/lock_screen.py"))
 hl.bind("Print", hl.dsp.exec_cmd("flameshot gui -r | wl-copy"))
-hl.bind(main_mod .. " + ALT + R", hl.dsp.send_shortcut({mods="SUPER + ALT", key="R", window="class:^(com.obsproject.Studio)$"}))
+hl.bind(main_mod .. " + ALT + R", hl.dsp.send_shortcut({mods="ALT", key="R", window="class:^(com.obsproject.Studio)$"}))
 
 -- Volume controls
 hl.bind(main_mod .. " + I", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume --toggle-mic"))
