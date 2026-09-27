@@ -7,6 +7,9 @@ local colors_path = home .. "/.cache/wal/colors-hyprland.lua"
 package.path = package.path .. ";" .. home .. "/.cache/wal/?.lua"
 local colors = require("colors-hyprland")
 
+-- Env variables
+hl.env("SAL_USE_VCLPLUGIN", "qt6") -- Set libre office to use QT
+
 hl.on("hyprland.start", function()
     -- Notification deamon
     hl.exec_cmd("~/.config/hypr/dunst/launch_dunst.sh")
