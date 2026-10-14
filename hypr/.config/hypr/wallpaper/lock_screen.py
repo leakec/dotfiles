@@ -6,6 +6,7 @@ from random import choice
 quotes = [
     "I'm afraid to move for fear of getting some of the world on me. - Alana (Sergio De La Pava)",
     "Do not pray for an easy life, pray for the strength to endure a difficult one - Bruce Lee",
+    "There are three things I have learned never to discuss with people: religion, politics, and the Great Pumpkin - Linus van Pelt (Charles M. Schulz)"
 ]
 
 pic_file = Path("/tmp/awww_pics.txt")
