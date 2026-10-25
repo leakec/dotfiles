@@ -23,3 +23,6 @@
 
 # Sensors
 * Run `lm_sensors --auto`
+
+# Themes for ssdm if desired
+* https://github.com/Keyitdev/sddm-astronaut-theme
