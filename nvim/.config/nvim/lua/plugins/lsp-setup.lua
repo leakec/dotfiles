@@ -13,10 +13,20 @@ return {
             vim.lsp.config("*", {
                 capabilities = vim.lsp.protocol.make_client_capabilities()
             })
+            vim.lsp.config('ruff', {
+                init_options = {
+                    settings = {
+                        lint = {
+                            enable = false,
+                        },
+                        lineLength = 100,
+                    },
+                },
+            })
 
             require('mason').setup({})
             require('mason-lspconfig').setup({
-                ensure_installed = {'ty', 'clangd', 'ts_ls', 'rust_analyzer'},
+                ensure_installed = {'ty', 'clangd', 'ts_ls', 'rust_analyzer', 'ruff'},
             })
 
             vim.opt.signcolumn = 'yes'
@@ -90,5 +100,53 @@ return {
                 })
             })
         end
-    }
+    },
+    -- Conform for formatting
+    {
+        "stevearc/conform.nvim",
+        event = { "VeryLazy" },
+        dependencies = { "williamboman/mason.nvim" },
+        keys = {
+            {
+                "<leader>cf",
+                function()
+                    require("conform").format({
+                        lsp_fallback = true,
+                        async = false,
+                        timeout_ms = 2000,
+                    })
+                end,
+                mode = { "n", "v" },
+                desc = "Format buffer or active visual selection",
+            },
+        },
+        opts = {
+            formatters_by_ft = {
+                python = { "ruff_format" },
+                cpp = { "my_clang_format" },
+                c = { "my_clang_format" },
+            },
+            formatters = {
+                my_clang_format = {
+                    command = "clang-format",
+                    args = function()
+                        local handle = io.popen("yaminstall")
+                        local yampath = ""
+                        if handle then
+                            yampath = handle:read("*a"):gsub("%s+", "")
+                            handle:close()
+                        end
+                        return {
+                            "--verbose",
+                            "--style=file:/" .. yampath .. "/etc/BuildEnv/karana-clang-format.yaml",
+                        }
+                    end,
+                },
+            },
+            format_on_save = nil,
+        },
+        config = function(_, opts)
+            require("conform").setup(opts)
+        end,
+    },
 }
