@@ -91,6 +91,12 @@ require("vim._core.ui2").enable()
 vim.opt.winborder = "rounded"
 vim.opt.completeopt:append("popup")
 
+-- Ripgrep as grep if available
+if vim.fn.executable('rg') == 1 then
+  vim.o.grepprg = 'rg --vimgrep --smart-case --no-heading'
+  vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
+end
+
 -- Used to check if package is available 
 function isModuleAvailable(name)
   if package.loaded[name] then
