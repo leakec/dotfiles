@@ -6,7 +6,7 @@
 * `yay -Y --devel --save`
 
 # Yay packages
-* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal16 python-pywalfox awww hypridle hyprlock dunst cmake zsh waybar zip unzip inotify-tools clip-hist zoxide lm_sensors sway-audio-idle-inhibit-git libnotify eza zellij bat ttf-font-awesome ttf-nerd-fonts-symbols-common ttf-jetbrains-mono-nerd ttf-hack-nerd pamixer lazygit rofi fd wl-clipboard less`
+* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal16 python-pywalfox awww hypridle hyprlock dunst cmake zsh waybar zip unzip inotify-tools clip-hist zoxide lm_sensors sway-audio-idle-inhibit-git libnotify eza zellij bat ttf-font-awesome ttf-nerd-fonts-symbols-common ttf-jetbrains-mono-nerd ttf-hack-nerd pamixer lazygit rofi fd wl-clipboard less tree-sitter-cli npm pipewire-pulse wireplumber`
 
 # Basic directories
 * `mkdir -p ~/Downloads`
@@ -20,6 +20,10 @@
 
 # Rust
 * `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+# Run awww manually once. Create symlink
+* `(awww-daemon &) && python ~/.config/hypr/wallpaper/sort_wallpapers.py --randomize-list`
+* `ln -s ~/.cache/wal/hyprland-colors.lua ~/.config/hypr/hyprland-colors.lua`
 
 # Sensors
 * Run `lm_sensors --auto`
