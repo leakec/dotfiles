@@ -30,3 +30,17 @@
 
 # Themes for ssdm if desired
 * https://github.com/Keyitdev/sddm-astronaut-theme
+
+# Kvantum QT theme if desired
+```
+yay -Sy kvantum
+mkdir -p ~/.config/Kvantum/pywal
+ln -s ~/.cache/wal/pywal.kvconfig ~/.config/Kvantum/pywal
+ln -s ~/.cache/wal/pywal.svg ~/.config/Kvantum/pywal
+```
+Then, open Kvantum manager and choose the pywal theme.
+
+# GTK prefer dark
+```
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+```
